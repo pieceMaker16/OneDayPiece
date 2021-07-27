@@ -1,6 +1,6 @@
 package com.example.onedaypiece.web.domain.member;
 
 public enum MemberRole {
-    MEMBER,
-    ADMIN
+    MEMBER, // 사용자 권한
+    ADMIN // 관리자 권한
 }

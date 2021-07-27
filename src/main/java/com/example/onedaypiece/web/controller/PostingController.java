@@ -14,15 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostingController {
     private final PostingService postingService;
 
-
-
     @GetMapping("/api/member/posting")
     public ResponseEntity<Long> createPosting(@RequestBody PostingRequestDto postingRequestDto){
 
         return ResponseEntity.ok().body(postingService.createPosting(postingRequestDto));
     }
-
-
 
 
 }

@@ -31,18 +31,11 @@ public class PostingService {
     }
 
 
-
-
-
-
-
-
-
     private Challenge getChallenge(PostingRequestDto postingRequestDto) {
         return challengeRepository.findById(postingRequestDto.getChallenge().getId()).orElseThrow(() -> new ApiRequestException("등록된 챌린지가 없습니다."));
     }
 
     private Member getMember(PostingRequestDto postingRequestDto) {
-        return memberRepository.findById(postingRequestDto.getMember().getId()).orElseThrow(() -> new ApiRequestException("등록된 멤버가 없습니다."));
+        return memberRepository.findById(postingRequestDto.getMember().getMemberId()).orElseThrow(() -> new ApiRequestException("등록된 멤버가 없습니다."));
     }
 }
