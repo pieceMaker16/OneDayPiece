@@ -21,10 +21,7 @@ public class PostingQueryRepository {
         return em.createQuery("select p " +
                 "from Posting p " +
                 "left join fetch p.member " +
-                "where p.challenge.challengeId = :challengeId and p.postingStatus = true " +
-                "order by p.createdAt desc", Posting.class)
-                .setFirstResult((int)(pageable.getOffset()))
-                .setMaxResults(pageable.getPageSize())
+                "where p.challenge.challengeId = :challengeId and p.postingStatus = true", Posting.class)
                 .setParameter("challengeId",challengeId)
                 .getResultList();
     }

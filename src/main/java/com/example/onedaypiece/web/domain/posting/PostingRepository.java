@@ -19,8 +19,7 @@ public interface PostingRepository extends JpaRepository<Posting,Long> {
     @Query("select p from Posting p " +
             "left join fetch p.member "+
             "where p.challenge.challengeId = :challengeId " +
-            "and p.postingStatus = true " +
-            "order by p.createdAt desc")
+            "and p.postingStatus = true")
     List<Posting> findPostingList(Long challengeId, Pageable pageable);
 
 
@@ -47,5 +46,4 @@ public interface PostingRepository extends JpaRepository<Posting,Long> {
             "and p.member = :member " +
             "and p.challenge = :challenge ")
     Posting existsTodayPosting(LocalDateTime now, Member member, Challenge challenge);
-
 }
